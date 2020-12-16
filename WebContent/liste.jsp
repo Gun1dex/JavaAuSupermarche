@@ -1,5 +1,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
+<%@page import="supermarche.Article" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -12,8 +13,12 @@
 	<h1>Liste des articles</h1>
 	
 	<ul>
-		<li>Article 1</li>
-		<li>Article 2</li>
+	<%
+	ArrayList<Article> articles = (ArrayList<Article>) request.getAttribute("listeArticle");
+	
+	for (Article article: articles) {%>
+ 		<li> <%= article.getLibelle() %></li>	
+	<% } %>
 	</ul>
 </body>
 </html>
