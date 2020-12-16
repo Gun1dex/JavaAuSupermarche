@@ -19,6 +19,13 @@ public class AjoutArticleServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String codebarre = request.getParameter("codebarre");
+		String reference = request.getParameter("reference");
+		String libelle = request.getParameter("libelle");
+		String prix = request.getParameter("prix");
+		String tva = request.getParameter("tva");
+		
+		
 		
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/AjoutArticle.jsp");
 		dispatcher.forward(request, response);
@@ -28,8 +35,10 @@ public class AjoutArticleServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect(request.getContextPath()+"/");
-		doGet(request, response);
+		
+		
+		response.sendRedirect(request.getContextPath()+"/liste.jsp");
+		
 	}
 
 }
