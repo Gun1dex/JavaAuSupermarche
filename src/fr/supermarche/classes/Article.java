@@ -43,5 +43,4 @@ public class Article {
 	public int getTauxTVA() {
 		return tauxTVA;
 	}
-	
 }

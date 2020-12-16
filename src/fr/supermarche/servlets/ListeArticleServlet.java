@@ -1,4 +1,4 @@
-package fr.supermarche.servlet;
+package fr.supermarche.servlets;
 
 
 import java.io.IOException;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.supermarche.classes.Article;
-import fr.supermarche.service.ArticleService;
+import fr.supermarche.services.ArticleService;
 
 /**
  * Servlet implementation class Servlet

@@ -1,4 +1,4 @@
-package fr.supermarche.service;
+package fr.supermarche.services;
 
 import java.io.BufferedReader;
 import java.io.IOException;

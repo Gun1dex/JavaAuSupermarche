@@ -1,4 +1,4 @@
-package fr.supermarche.servlet;
+package fr.supermarche.servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
