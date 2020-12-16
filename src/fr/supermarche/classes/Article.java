@@ -1,4 +1,4 @@
-package supermarche;
+package fr.supermarche.classes;
 import java.util.HashMap;
 import java.util.Map;
 /**

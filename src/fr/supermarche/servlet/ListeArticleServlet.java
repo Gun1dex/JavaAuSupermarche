@@ -1,3 +1,4 @@
+package fr.supermarche.servlet;
 
 
 import java.io.IOException;
@@ -10,22 +11,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import supermarche.Article;
-import supermarche.ArticleService;
+import fr.supermarche.classes.Article;
+import fr.supermarche.service.ArticleService;
 
 /**
  * Servlet implementation class Servlet
  */
 @WebServlet("/ListeArticle")
-public class ListeArticle extends HttpServlet {
+public class ListeArticleServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArticleService as = new ArticleService();
 		ArrayList<Article> articles = as.getArticles();
-		//ArrayList<Article> articles = new ArrayList<Article>();
-		//articles.add(new Article(1, "1", "Tomate", 5, 0));
 		
 		request.setAttribute("listeArticle", articles);
 		
@@ -34,7 +33,6 @@ public class ListeArticle extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
