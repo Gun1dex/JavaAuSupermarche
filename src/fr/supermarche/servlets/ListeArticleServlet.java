@@ -28,7 +28,7 @@ public class ListeArticleServlet extends HttpServlet {
 		
 		request.setAttribute("listeArticle", articles);
 		
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/liste.jsp");
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/ListeArticle.jsp");
 		dispatcher.forward(request, response);
 	}
 
