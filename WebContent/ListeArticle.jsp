@@ -22,6 +22,9 @@
 			<a href="<%=request.getContextPath()%>/ModifierArticle?reference=<%=article.getReference() %>">
 				<%=article.getLibelle()%>
 			</a>
+			<a href="<%=request.getContextPath()%>/SupprimerArticle?reference=<%=article.getReference() %>">
+				Supprimer
+			</a>
 		</li>
 		<%
 			}

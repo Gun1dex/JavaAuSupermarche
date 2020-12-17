@@ -24,6 +24,6 @@
 		<input type="number" name="tva" value="${article.tauxTVA}">
 		<button type="submit">Modifier</button>
 	</form>
-	
+		
 </body>
 </html>
