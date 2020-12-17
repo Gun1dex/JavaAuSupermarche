@@ -43,4 +43,26 @@ public class Article {
 	public int getTauxTVA() {
 		return tauxTVA;
 	}
+
+	public void setCodeBarre(long codeBarre) {
+		this.codeBarre = codeBarre;
+	}
+
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
+
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
+	}
+
+	public void setPrixHT(int prixHT) {
+		this.prixHT = prixHT;
+	}
+
+	public void setTauxTVA(int tauxTVA) {
+		this.tauxTVA = tauxTVA;
+	}
+	
+	
 }

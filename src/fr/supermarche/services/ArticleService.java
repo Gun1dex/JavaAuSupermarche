@@ -2,9 +2,8 @@ package fr.supermarche.services;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import fr.supermarche.classes.Article;
@@ -19,23 +18,18 @@ public class ArticleService {
 	
 	public void fillArticle() {
 		ArrayList<Article> articles = new ArrayList<Article>();
-		Path pathToFile = Paths.get("C:\\Users\\bapti\\OneDrive\\Documents\\Developpements\\eclipse-workspace\\JavaAuSupermarche\\assets\\listeArticles.csv");
+		InputStream is = getClass().getResourceAsStream("../../../../../assets/listeArticles.csv");
+		BufferedReader br = new BufferedReader(new InputStreamReader(is));
+		String line;
 		
-		try (BufferedReader br = Files.newBufferedReader(pathToFile)) {
-			System.out.println("Trouvé 2");
-			String line = br.readLine();
-			
-			while (line != null) {
-				System.out.println("line" + line);
+		try {
+			while ((line = br.readLine()) != null) {
 				String[] attributes = line.split(",");
 				
 				Article article = createArticle(attributes);
 				
 				articles.add(article);
-				
-				line = br.readLine();
 			}
-		
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -14,13 +14,15 @@
 
 	<ul>
 		<%
-			ArrayList<Article> articles = (ArrayList<Article>) request.getAttribute("listeArticle");
+			ArrayList<Article> articles = (ArrayList<Article>) request.getAttribute("listeArticles");
 
 		for (Article article : articles) {
 		%>
-		<li><a href="<%=request.getContextPath()%>/ModifierArticle?reference=<%=article.getReference() %>">
+		<li>
+			<a href="<%=request.getContextPath()%>/ModifierArticle?reference=<%=article.getReference() %>">
 				<%=article.getLibelle()%>
-		</a></li>
+			</a>
+		</li>
 		<%
 			}
 		%>
