@@ -8,15 +8,23 @@
 <title>Supprimer article</title>
 </head>
 <body>
-	<p>N° de Codebarre <%= article.getCodeBarre() %></p>
-	<p>N° de Référence <%= article.getReference() %></p>
-	<p>Libelle <%= article.getLibelle() %></p>
-	<p>Prix HT <%= article.getPrixHT() %></p>
-	<p>TVA <%= article.getTauxTVA() %></p>
+	<h1>Supprimer l'article</h1>
+	<% HttpSession sessionAdmin = request.getSession();
+	if("ADMIN".equals(sessionAdmin.getAttribute("role"))) { %>
+		<p>N° de Codebarre <%= article.getCodeBarre() %></p>
+		<p>Référence <%= article.getReference() %></p>
+		<p>Libelle <%= article.getLibelle() %></p>
+		<p>Prix HT <%= article.getPrixHT() %></p>
+		<p>TVA <%= article.getTauxTVA() %></p>
 
-	<form method="POST">
-		<button type="submit">Supprimer Article</button>
-	</form>
-	<button><a href="<%=request.getContextPath()%>/ListeArticle">Annuler</a></button>
+		<form method="POST">
+			<button type="submit">Supprimer Article</button>
+		</form>
+		<button><a href="<%=request.getContextPath()%>/ListeArticle">Annuler</a></button>
+	<%} else{ %>
+		<p>Vous ne pouvez pas supprimer cet article</p>
+		<br>
+		<button><a href="<%= request.getContextPath()%>/ListeArticle">Retour aux articles</a></button>
+	<%} %>
 </body>
 </html>

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import fr.supermarche.classes.Article;
 
@@ -13,7 +14,6 @@ public class ArticleService {
 	private ArrayList<Article> articles;
 	
 	public ArticleService() {
-		this.fillArticle();
 	}
 	
 	public void fillArticle() {
@@ -51,5 +51,23 @@ public class ArticleService {
 		return articles;
 	}
 	
+	public double getMontantTTC(ArrayList<Article> articles) {
+		double totalTTC = 0;
+		for (Article a: articles) {
+			totalTTC += a.getMontantTTC();
+		}
+		return totalTTC;
+	}
+	
+	public HashMap<Double, Integer> getTotalTauxTVA(ArrayList<Article> articles) {
+		HashMap<Double, Integer> map = new HashMap<Double, Integer>();
+		
+		for (Article a : articles) {
+			int count = map.containsKey(((double) a.getCalculatedTVA())/100) ? map.get(((double) a.getCalculatedTVA())/100) : 0;
+			map.put(((double) a.getCalculatedTVA()) / 100, count + 1);
+		}
+		
+		return map;
+	}
 	
 }

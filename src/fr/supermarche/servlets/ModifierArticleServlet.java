@@ -45,7 +45,7 @@ public class ModifierArticleServlet extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		long codeBarre = Integer.parseInt(request.getParameter("codebarre"));
+		long codeBarre = Long.parseLong(request.getParameter("codebarre"));
 		String reference = request.getParameter("reference");
 		String libelle = request.getParameter("libelle");
 		int prix = Integer.parseInt(request.getParameter("prix"));

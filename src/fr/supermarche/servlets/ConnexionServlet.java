@@ -1,41 +1,44 @@
 package fr.supermarche.servlets;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class ConnexionServlet
- */
 @WebServlet("/Connexion")
 public class ConnexionServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ConnexionServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/Connexion.jsp");
+		rd.forward(request, response);
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String login = request.getParameter("login");
+		String password = request.getParameter("password");
+		
+		if("admin".equals(login) && "admin".equals(password)) {
+            HttpSession session = request.getSession(true);
+            session.setAttribute("isConnected", true);
+            session.setAttribute("role", "ADMIN");
+            response.sendRedirect(request.getContextPath() + "/ListeArticle");
+        }
+        else if("user".equals(login) && "user".equals(password)) {
+            HttpSession session = request.getSession(true);
+            session.setAttribute("isConnected", true);
+            session.setAttribute("role", "USER");
+            response.sendRedirect(request.getContextPath() + "/ListeArticle");
+        }
+        else {
+            this.doGet(request, response);
+        }
 	}
 
 }

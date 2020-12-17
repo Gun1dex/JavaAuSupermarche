@@ -1,6 +1,8 @@
 package fr.supermarche.classes;
+
 import java.util.HashMap;
 import java.util.Map;
+
 /**
  * @author bapti
  *
@@ -11,15 +13,15 @@ public class Article {
 	private String libelle;
 	private int prixHT;
 	private int tauxTVA;
-	private final static Map<Integer, Integer> TVA = new HashMap<>();
-	
+	private final static Map<Integer, Integer> TVA = new HashMap<Integer, Integer>();
+
 	public Article(long codeBarre, String reference, String libelle, int prixHT, int tauxTVA) {
 		this.codeBarre = codeBarre;
 		this.reference = reference;
 		this.libelle = libelle;
 		this.prixHT = prixHT;
 		this.tauxTVA = tauxTVA;
-		
+
 		TVA.put(0, 550);
 		TVA.put(1, 2000);
 	}
@@ -64,5 +66,12 @@ public class Article {
 		this.tauxTVA = tauxTVA;
 	}
 	
+	public int getCalculatedTVA() {
+		return TVA.get(this.tauxTVA);
+	}
 	
+	public double getMontantTTC() {
+		return ((double)this.getPrixHT()) + ( ((double)this.getPrixHT()) * this.getCalculatedTVA() / 10000);
+	}
+
 }

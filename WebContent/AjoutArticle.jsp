@@ -4,24 +4,35 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Ajouter un article</title>
 </head>
 <body>
-<h1>Ajouter un article</h1>
-<form method="post">
-	<label for="codebarre">N° de Codebarre</label>
-	<input type="number" name="codebarre">
-	<label for="reference">Réference</label>
-	<input type="text" name="reference">
-	<label for="libelle">Libelle</label>
-	<input type="text" name="libelle">
-	<label for="prix">Prix en centimes</label>
-	<input type="number" name="prix">
-	<label for="tva">TVA</label>
-	<input type="number" name="tva">
+	<h1>Ajouter un article</h1>
+	<%
+		HttpSession sessionAdmin = request.getSession();
 	
-<input type="submit" value="ajouter">
+		if("ADMIN".equals(sessionAdmin.getAttribute("role"))) { %>
+	
+			<form method="post">
+				<label for="codebarre">N° de Codebarre</label>
+				<input type="number" name="codebarre">
+				<label for="reference">Réference</label>
+				<input type="text" name="reference">
+				<label for="libelle">Libelle</label>
+				<input type="text" name="libelle">
+				<label for="prix">Prix en centimes</label>
+				<input type="number" name="prix">
+				<label for="tva">TVA</label>
+				<input type="number" name="tva">
+				
+				<input type="submit" value="ajouter">
+		<%}
+		else{%>
+			<p>Vous n'avez pas l'autorisation d'ajouter un article</p>
+			<br>
+			<button><a href="<%= request.getContextPath()%>/ListeArticle">Retour aux articles</a></button>
+		<%} %>
 
-</form>
+		</form>
 </body>
 </html>

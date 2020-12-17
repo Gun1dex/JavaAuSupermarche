@@ -28,7 +28,7 @@ public class AjoutArticleServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		long codebarre = Integer.parseInt(request.getParameter("codebarre"));
+		long codebarre = Long.parseLong(request.getParameter("codebarre"));
 		String reference = request.getParameter("reference");
 		String libelle = request.getParameter("libelle");
 		int prix = Integer.parseInt(request.getParameter("prix"));

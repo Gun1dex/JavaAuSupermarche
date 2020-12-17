@@ -23,6 +23,7 @@ public class LaunchAppListener implements ServletContextListener {
 
 	public void contextInitialized(ServletContextEvent sce) {
 		ArticleService as = new ArticleService();
+		as.fillArticle();
 		ArrayList<Article> articles = as.getArticles();
 		ServletContext svc = sce.getServletContext();
 
