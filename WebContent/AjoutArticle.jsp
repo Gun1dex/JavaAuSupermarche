@@ -7,6 +7,8 @@
 <title>Ajouter un article</title>
 </head>
 <body>
+	<jsp:include page="header.jsp" flush="true" />
+	
 	<h1>Ajouter un article</h1>
 	<%
 		HttpSession sessionAdmin = request.getSession();
@@ -30,9 +32,13 @@
 		else{%>
 			<p>Vous n'avez pas l'autorisation d'ajouter un article</p>
 			<br>
-			<button><a href="<%= request.getContextPath()%>/ListeArticle">Retour aux articles</a></button>
+			<button type="button" class="btn btn-light">
+				<a href="<%= request.getContextPath()%>/ListeArticle">Retour aux articles</a>
+			</button>
 		<%} %>
 
 		</form>
+		
+		<jsp:include page="footer.jsp" flush="true" />
 </body>
 </html>

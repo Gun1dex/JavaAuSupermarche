@@ -9,6 +9,8 @@
 <title>Modifier Article</title>
 </head>
 <body>
+	<jsp:include page="header.jsp" flush="true" />
+	
 	<h1>Modifier un article</h1>
  	<% 
  		HttpSession sessionAdmin = request.getSession();
@@ -31,5 +33,7 @@
 			<br>
 			<button><a href="<%= request.getContextPath()%>/ListeArticle">Retour aux articles</a></button>
 		<%} %>
+		
+		<jsp:include page="footer.jsp" flush="true" />
 </body>
 </html>

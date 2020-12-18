@@ -11,7 +11,8 @@
 <title>Ticket de caisse</title>
 </head>
 <body>
-
+	<jsp:include page="header.jsp" flush="true" />
+	
 	<h1>Ticket de caisse</h1>
 
 	<c:choose>
@@ -50,6 +51,7 @@
 		</c:otherwise>
 
 	</c:choose>
-
+	
+	<jsp:include page="footer.jsp" flush="true" />
 </body>
 </html>

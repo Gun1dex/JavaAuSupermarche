@@ -28,8 +28,16 @@ public class AjoutPanierServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServletContext svc = getServletContext();
 		ArrayList<Article> articles = (ArrayList<Article>) svc.getAttribute("listeArticles");
-		long codeBarre = Long.parseLong(request.getParameter("codeBarre"));
 		Article article = null;
+		long codeBarre = 0;
+		try 
+        { 
+			codeBarre = Long.parseLong(request.getParameter("codeBarre"));
+        }  
+        catch (NumberFormatException e) 
+        { 
+            System.out.println("Valeur n'est pas un nombre ... ne rien faire");
+        }
 		
 		for (Article art : articles) {
 			if(art.getCodeBarre() == codeBarre) {

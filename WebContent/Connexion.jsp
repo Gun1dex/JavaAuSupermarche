@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<jsp:include page="header.jsp" flush="true" />
+	
 	<form method="post">
 		<h1>JAVA AU SUPERMARCHE</h1>
 		<br><br>
@@ -20,5 +22,7 @@
 		<input type="submit" value="Connexion">
 		<input type="submit" value="Connexion sans authentification">
 	</form>
+	
+	<jsp:include page="footer.jsp" flush="true" />
 </body>
 </html>

@@ -8,7 +8,10 @@
 <title>Supprimer article</title>
 </head>
 <body>
+	<jsp:include page="header.jsp" flush="true" />
+	
 	<h1>Supprimer l'article</h1>
+	
 	<% HttpSession sessionAdmin = request.getSession();
 	if("ADMIN".equals(sessionAdmin.getAttribute("role"))) { %>
 		<p>N° de Codebarre <%= article.getCodeBarre() %></p>
@@ -26,5 +29,8 @@
 		<br>
 		<button><a href="<%= request.getContextPath()%>/ListeArticle">Retour aux articles</a></button>
 	<%} %>
+		<button><a href="<%= request.getContextPath()%>/Connexion">Déconnexion</a></button>
+		
+		<jsp:include page="footer.jsp" flush="true" />
 </body>
 </html>
