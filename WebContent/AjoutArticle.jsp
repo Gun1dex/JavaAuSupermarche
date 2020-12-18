@@ -37,7 +37,12 @@
 							</tr>
 							<tr>
 								<td style="padding-right:50px;">TVA</td>
-								<td style="padding-left:50px;"><input type="number" name="tva"></td>
+								<td style="padding-left:50px;">
+									<select name="tva">
+										<option value="0">5.5%</option>
+										<option value="1">20%</option>
+									</select>
+								</td>
 							</tr>
 							
 						</table>

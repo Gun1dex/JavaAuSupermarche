@@ -35,15 +35,13 @@ public class ConnexionServlet extends HttpServlet {
             session.setAttribute("role", "ADMIN");
             response.sendRedirect(request.getContextPath() + "/ListeArticle");
         }
-        else if("user".equals(login) && "user".equals(password)) {
+        else  {
             HttpSession session = request.getSession(true);
             session.setAttribute("isConnected", true);
             session.setAttribute("role", "USER");
             response.sendRedirect(request.getContextPath() + "/ListeArticle");
         }
-        else {
-            this.doGet(request, response);
-        }
+        
 	}
 
 }

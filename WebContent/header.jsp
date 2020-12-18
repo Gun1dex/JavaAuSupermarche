@@ -21,12 +21,17 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav mr-auto">
+				<%
+				HttpSession sessionAdmin = request.getSession(false);
+		
+				if(sessionAdmin!= null  && "ADMIN".equals(sessionAdmin.getAttribute("role"))) { %>
 				<li class="nav-item">
 					<a class="nav-link" href="<%= request.getContextPath()%>/AjoutArticle">
 						<i class="fas fa-file-medical"></i>
 						Ajouter un article
 					</a>
 				</li>
+				<%} %>
 				<li class="nav-item">
 					<a class="nav-link" href="<%= request.getContextPath()%>/ListeArticle">
 						<i class="fas fa-list"></i>
@@ -50,13 +55,7 @@
 				<li class="nav-item">
 					<a class="nav-link" href="<%= request.getContextPath()%>/Connexion">
 						<i class="fas fa-power-off"></i>
-						Connexion
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="<%= request.getContextPath()%>/Connexion">
-						<i class="fas fa-power-off"></i>
-						Déconnexion
+						<%= sessionAdmin != null ? "Connexion" : "Déconnexion"  %>
 					</a>
 				</li>
 			</ul>
